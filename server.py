@@ -32,7 +32,7 @@ async def long_task(files: list[str], ctx: Context) -> str:
         ctx.info(f"Processing {file}")
         await ctx.report_progress(i, len(files))
         data, mime_type = await ctx.read_resource(f"file://{file}")
-    return "Processing complete"
+    return {"status": "Processing complete"}
 
 
 @mcp.resource("users://all", name="all_users", mime_type="application/json")
